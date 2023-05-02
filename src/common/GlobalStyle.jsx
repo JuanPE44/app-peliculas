@@ -63,15 +63,16 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 900;
     font-style: normal;
   }
-  
-  body {
+
+  * {
     margin: 0;
     padding: 0;
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  body, html {
     background: #fefefe;
     font-family: 'Inter', Helvetica, Sans-Serif;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 900px;
-    font-size: 62.5%;
   }
 `
