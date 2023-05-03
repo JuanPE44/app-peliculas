@@ -1,8 +1,17 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export function SearchMovie({ title, poster, year }) {
+export function MovieSearch({ id, title, poster, year, type, setSearch }) {
+  const handleClick = () => {
+    setSearch(title)
+  }
+
   return (
-    <MovieLi className="movie">
+    <MovieLi
+      className="movie"
+      to={`/${type}/${id}`}
+      onClick={() => handleClick()}
+    >
       <img src={poster} alt={title} loading="lazy" />
       <div>
         <div className="title">{title}</div>
@@ -12,7 +21,7 @@ export function SearchMovie({ title, poster, year }) {
   )
 }
 
-const MovieLi = styled.li`
+const MovieLi = styled(Link)`
   width: 100%;
   display: flex;
   align-items: center;
@@ -24,6 +33,7 @@ const MovieLi = styled.li`
   padding: 0.5rem;
   cursor: pointer;
   text-align: left;
+  text-decoration: none;
 
   &:hover {
     background: #222;
@@ -41,7 +51,7 @@ const MovieLi = styled.li`
   }
 
   img {
-    width: 4rem;
+    width: 4.5rem;
     height: 6.5rem;
     object-fit: cover;
   }

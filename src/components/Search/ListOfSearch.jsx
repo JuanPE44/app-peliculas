@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { SearchMovie } from './SearchMovie'
+import { MovieSearch } from './MovieSearch'
 
-export function ListOfSearch({ movies }) {
+export function ListOfSearch({ movies, setSearch }) {
   return (
     <>
       <SubTitle>Peliculas y series</SubTitle>
@@ -9,11 +9,14 @@ export function ListOfSearch({ movies }) {
         {movies.map((movie, index) => {
           if (index > 3) return
           return (
-            <SearchMovie
+            <MovieSearch
               key={movie.id}
+              id={movie.id}
               title={movie.title}
               poster={movie.poster}
               year={movie.year}
+              type={movie.type}
+              setSearch={setSearch}
             />
           )
         })}

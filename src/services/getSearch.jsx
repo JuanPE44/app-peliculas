@@ -6,7 +6,7 @@ const API = {
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w220_and_h330_face'
 
-export async function getMovies(search) {
+export async function getSearch(search) {
   if (search === '') return
 
   try {
@@ -21,6 +21,7 @@ export async function getMovies(search) {
       title: movie.title ? movie.title : movie.name,
       poster: `${IMG_URL}${movie.poster_path}`,
       year: movie.release_date ? movie.release_date : movie.first_air_date,
+      type: movie.media_type,
     }))
   } catch (err) {
     console.log('error fetching movies')

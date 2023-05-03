@@ -15,6 +15,7 @@ export function FormSearch({ search, setSearch, searchMovies }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log('submit')
     searchMovies({ search })
   }
 
@@ -22,6 +23,10 @@ export function FormSearch({ search, setSearch, searchMovies }) {
     let newSearch = e.target.value
     setSearch(newSearch)
     debounceSearch(newSearch)
+  }
+
+  const handleClear = () => {
+    setSearch('avengers')
   }
   return (
     <Form onSubmit={(e) => handleSubmit(e)}>
@@ -33,18 +38,20 @@ export function FormSearch({ search, setSearch, searchMovies }) {
         placeholder="Busqueda de Peliculas o Series de TV"
         required
       />
+      <button type="button" onClick={() => handleClear()}>
+        x
+      </button>
     </Form>
   )
 }
 
 const Form = styled.form`
-  min-width: 40rem;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   overflow: hidden;
-  border-radius: 10px;
-  padding: 0 1rem;
+  padding: 0.5rem;
 
   input {
     flex-grow: 1;
