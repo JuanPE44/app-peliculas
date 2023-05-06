@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 import { IconSvg } from '../../common/icons/IconSvg'
-import { SvgSearch } from '../../common/icons/Svgs'
+import { SvgSearch, SvgDelete } from '../../common/icons/Svgs'
 import debounce from 'just-debounce-it'
 import { useCallback } from 'react'
+import { useSearchContext } from '../../hooks/useSearchContext'
+import { useNavigate } from 'react-router-dom'
 
-export function FormSearch({ search, setSearch, searchMovies }) {
+export function FormSearch() {
+  const { search, setSearch, searchMovies, clearSearch } = useSearchContext()
+  const navigate = useNavigate()
+
   const debounceSearch = useCallback(
     debounce((search) => {
-      console.log('entro', search)
       searchMovies({ search })
     }, 300),
     []
@@ -15,8 +19,8 @@ export function FormSearch({ search, setSearch, searchMovies }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('submit')
-    searchMovies({ search })
+    navigate(`/search/${search}`)
+    clearSearch()
   }
 
   const handleChange = (e) => {
@@ -26,7 +30,7 @@ export function FormSearch({ search, setSearch, searchMovies }) {
   }
 
   const handleClear = () => {
-    setSearch('avengers')
+    setSearch('')
   }
   return (
     <Form onSubmit={(e) => handleSubmit(e)}>
@@ -38,9 +42,12 @@ export function FormSearch({ search, setSearch, searchMovies }) {
         placeholder="Busqueda de Peliculas o Series de TV"
         required
       />
-      <button type="button" onClick={() => handleClear()}>
-        x
-      </button>
+      <div
+        onClick={() => handleClear()}
+        style={{ visibility: `${search.length > 0 ? '' : 'hidden'}` }}
+      >
+        <IconSvg icon={SvgDelete} color={'#fff'} width={1} height={1} />
+      </div>
     </Form>
   )
 }
@@ -64,6 +71,11 @@ const Form = styled.form`
 
     &::placeholder {
       color: #fff;
+      font-size: 1.4rem;
+    }
+
+    &:first-letter {
+      text-transform: uppercase;
     }
   }
 `

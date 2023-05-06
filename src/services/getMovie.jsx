@@ -6,7 +6,7 @@ const API = {
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w220_and_h330_face'
 
-export async function getMovie({ postMoviId, type }) {
+export async function getMovie(postMoviId, type) {
   try {
     const response = await fetch(
       `${API.BASE}${type}/${postMoviId}?api_key=${API.KEY}&language=${API.LANGUAJE}`
@@ -15,7 +15,7 @@ export async function getMovie({ postMoviId, type }) {
     const movie = {
       id: json.id,
       title: json.title ? json.title : json.name,
-      poster: `${IMG_URL}${json.poster_path}`,
+      poster: `${IMG_URL}${json.backdrop_path}`,
       year: json.release_date ? json.release_date : json.first_air_date,
     }
     return movie

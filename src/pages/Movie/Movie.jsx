@@ -10,12 +10,21 @@ export function Movie() {
   return (
     <MovieDiv>
       <Header />
+      <img className="fondo" src={movie && movie.poster} />
       <h1 style={{ fontSize: '10rem' }}>{movie && movie?.title}</h1>
     </MovieDiv>
   )
 }
 
 const MovieDiv = styled.div`
+  position: relative;
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
+
+  .fondo {
+    position: absolute;
+
+    height: 50vh;
+    object-fit: cover;
+  }
 `

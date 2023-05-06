@@ -1,13 +1,16 @@
 import { GlobalStyle } from './common/GlobalStyle'
 import styled from 'styled-components'
 import { MyRoutes } from './routes/routes'
+import { SearchContextProvider } from './context/SearchContext'
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <AppDiv>
-        <MyRoutes />
+        <SearchContextProvider>
+          <MyRoutes />
+        </SearchContextProvider>
       </AppDiv>
     </>
   )

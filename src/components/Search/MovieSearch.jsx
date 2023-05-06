@@ -1,8 +1,14 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { useSearchContext } from '../../hooks/useSearchContext'
+import { getYear } from '../../utilities/getYear'
 
-export function MovieSearch({ id, title, poster, year, type, setSearch }) {
+export function MovieSearch({ id, title, poster, date, type }) {
+  const { setSearch, clearSearch } = useSearchContext()
+  const year = getYear(date)
+
   const handleClick = () => {
+    clearSearch()
     setSearch(title)
   }
 

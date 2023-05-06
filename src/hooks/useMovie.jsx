@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { getMovie } from '../services/getMovie'
 
-export function useMovie(id) {
+export function useMovie({ postMoviId, type }) {
   const [movie, setMovie] = useState()
   useEffect(() => {
-    getMovie(id)
+    getMovie(postMoviId, type)
       .then((data) => setMovie(data))
       .catch((err) => console.error(err))
-  }, [id])
+  }, [postMoviId])
 
   return { movie }
 }

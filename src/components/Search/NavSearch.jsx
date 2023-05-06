@@ -1,20 +1,13 @@
 import styled from 'styled-components'
 import { RenderSearch } from './RenderSearch'
 import { FormSearch } from './FormSearch'
-import { useSearch } from '../../hooks/useSearch'
 
 export function NavSearch() {
-  const { search, setSearch, movies, searchMovies } = useSearch()
-
   return (
     <Nav>
-      <FormSearch
-        searchMovies={searchMovies}
-        search={search}
-        setSearch={setSearch}
-      />
+      <FormSearch />
       <div className="search-container">
-        <RenderSearch movies={movies} setSearch={setSearch} />
+        <RenderSearch />
       </div>
     </Nav>
   )

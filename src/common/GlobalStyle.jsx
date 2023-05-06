@@ -72,7 +72,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body, html {
-    background: #fefefe;
+    background: #333;
     font-family: 'Inter', Helvetica, Sans-Serif;
   }
 `

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { NavSearch } from '../Search/NavSearch'
-import { SearchContextProvider } from '../../context/SearchContext'
 
 export function Header() {
   return (
@@ -10,9 +9,7 @@ export function Header() {
         <li>Peliculas</li>
         <li>Series</li>
       </ul>
-      <SearchContextProvider>
-        <NavSearch />
-      </SearchContextProvider>
+      <NavSearch />
     </HeaderContainer>
   )
 }
@@ -23,7 +20,7 @@ const HeaderContainer = styled.header`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background: linear-gradient(45deg, #03f, #0f3);
+  background: #012;
   padding: 2rem;
   color: #fff;
 
