@@ -1,13 +1,15 @@
 import styled from 'styled-components'
+import debounce from 'just-debounce-it'
 import { IconSvg } from '../../common/icons/IconSvg'
 import { SvgSearch, SvgDelete } from '../../common/icons/Svgs'
-import debounce from 'just-debounce-it'
 import { useCallback } from 'react'
 import { useSearchContext } from '../../hooks/useSearchContext'
 import { useNavigate } from 'react-router-dom'
+import { colors } from '../../common/theme'
 
 export function FormSearch() {
-  const { search, setSearch, searchMovies, clearSearch } = useSearchContext()
+  const { search, setSearch, searchMovies, inputRef, setInputActive } =
+    useSearchContext()
   const navigate = useNavigate()
 
   const debounceSearch = useCallback(
@@ -20,7 +22,7 @@ export function FormSearch() {
   const handleSubmit = (e) => {
     e.preventDefault()
     navigate(`/search/${search}`)
-    clearSearch()
+    setInputActive(false)
   }
 
   const handleChange = (e) => {
@@ -37,10 +39,14 @@ export function FormSearch() {
       <IconSvg icon={SvgSearch} color={'#fff'} width={2} height={2} />
       <input
         onChange={(e) => handleChange(e)}
+        onClick={() =>
+          setInputActive(inputRef.current === document.activeElement)
+        }
         value={search}
         type="text"
         placeholder="Busqueda de Peliculas o Series de TV"
         required
+        ref={inputRef}
       />
       <div
         onClick={() => handleClear()}
@@ -58,7 +64,9 @@ const Form = styled.form`
   align-items: center;
   gap: 0.4rem;
   overflow: hidden;
-  padding: 0.5rem;
+  padding: 1rem 1.5rem;
+  z-index: 100;
+  background: transparent;
 
   input {
     flex-grow: 1;
@@ -66,7 +74,7 @@ const Form = styled.form`
     padding: 0.5rem;
     border: none;
     outline: none;
-    background: #10161d;
+    background: transparent;
     color: #fff;
 
     &::placeholder {

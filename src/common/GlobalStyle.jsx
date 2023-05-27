@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -72,7 +73,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body, html {
-    background: #333;
+    background: ${colors.grey};
     font-family: 'Inter', Helvetica, Sans-Serif;
+    min-height: 300vh;
   }
 `

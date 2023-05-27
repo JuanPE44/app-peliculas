@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { getYear } from '../../utilities/getYear'
+import { colors } from '../../common/theme'
 
 export function Movie({ id, title, poster, date, type }) {
   const handleClick = () => {}
@@ -28,10 +29,11 @@ const MovieLi = styled.li`
   color: #fff;
   cursor: pointer;
   text-align: left;
-  background: #111;
+  background: ${colors.primary};
+  transition: 0.3s;
 
   &:hover {
-    background: #222;
+    background: ${colors.black};
   }
 
   a {
@@ -40,6 +42,7 @@ const MovieLi = styled.li`
     flex-direction: column;
     text-decoration: none;
     img {
+      min-height: 33rem;
       flex-grow: 0;
       object-fit: cover;
     }

@@ -6,24 +6,18 @@ export const SearchContext = createContext()
 
 export const SearchContextProvider = ({ children }) => {
   const [search, setSearch] = useState('')
-  const [error, setError] = useState(null)
   const [moviesSearched, setMoviesSearched] = useState([])
   const [loading, setLoading] = useState(true)
+  const [inputActive, setInputActive] = useState(false)
   const isFirstInput = useRef(true)
   const previousSearch = useRef(search)
+  const inputRef = useRef(null)
 
   useEffect(() => {
     if (isFirstInput.current) {
       isFirstInput.current = search === ''
       return
     }
-
-    if (search === '') {
-      setMoviesSearched([])
-      return
-    }
-
-    setError(null)
   }, [search])
 
   const searchMovies = useCallback(async ({ search }) => {
@@ -41,22 +35,18 @@ export const SearchContextProvider = ({ children }) => {
     }
   })
 
-  const clearSearch = () => {
-    setSearch('')
-    setMoviesSearched([])
-  }
-
   return (
     <SearchContext.Provider
       value={{
         search,
         setSearch,
-        errorSearch: error,
         moviesSearched,
         searchMovies,
         loading,
         isFirstInput,
-        clearSearch,
+        inputRef,
+        setInputActive,
+        inputActive,
       }}
     >
       {children}

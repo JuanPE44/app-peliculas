@@ -1,13 +1,22 @@
 import styled from 'styled-components'
 import { RenderSearch } from './RenderSearch'
 import { FormSearch } from './FormSearch'
+import { colors } from '../../common/theme'
+import { useSearchContext } from '../../hooks/useSearchContext'
 
 export function NavSearch() {
+  const { inputRef, setInputActive, inputActive } = useSearchContext()
   return (
-    <Nav>
+    <Nav
+      onClick={() =>
+        setInputActive(inputRef.current === document.activeElement)
+      }
+    >
       <FormSearch />
-      <div className="search-container">
-        <RenderSearch />
+      <div className="search-div">
+        <SearchContainer active={inputActive}>
+          <RenderSearch />
+        </SearchContainer>
       </div>
     </Nav>
   )
@@ -19,17 +28,15 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #10161d;
-  padding: 0.6rem;
-  border-radius: 0.4rem;
+  background-color: #0007;
+  color: #fff;
+  border-radius: 0.4rem 0.4rem 0 0;
+  overflow: visible;
+  z-index: 100;
 
-  .search-container {
-    position: absolute;
-    background: #10161d;
-    top: 5rem;
+  .search-div {
+    position: relative;
     width: 100%;
-    z-index: 100;
-    border-radius: 0.4rem;
   }
 
   p {
@@ -37,4 +44,13 @@ const Nav = styled.nav`
     font-size: 1rem;
     color: red;
   }
+`
+
+const SearchContainer = styled.div`
+  display: ${(props) => (props.active ? 'block' : 'none')};
+  position: absolute;
+  background-color: #0007;
+  width: 100%;
+  z-index: 100;
+  border-radius: 0 0 0.4rem 0.4rem;
 `

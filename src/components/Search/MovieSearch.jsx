@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { useSearchContext } from '../../hooks/useSearchContext'
 import { getYear } from '../../utilities/getYear'
+import { colors } from '../../common/theme'
 
 export function MovieSearch({ id, title, poster, date, type }) {
-  const { setSearch, clearSearch } = useSearchContext()
+  const { setInputActive } = useSearchContext()
   const year = getYear(date)
 
   const handleClick = () => {
-    clearSearch()
-    setSearch(title)
+    setInputActive(false)
   }
 
   return (
@@ -40,9 +40,10 @@ const MovieLi = styled(Link)`
   cursor: pointer;
   text-align: left;
   text-decoration: none;
+  transition: 0.3s;
 
   &:hover {
-    background: #222;
+    background: ${colors.primary};
   }
 
   .title {
@@ -53,7 +54,7 @@ const MovieLi = styled(Link)`
 
   .year {
     font-size: 1.3rem;
-    color: #b9bdcc;
+    color: ${colors.secondary};
   }
 
   img {
