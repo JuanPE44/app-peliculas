@@ -12,7 +12,8 @@ export function Movie({ id, title, poster, date, type }) {
       <Link to={`/${type}/${id}`}>
         <img src={poster} alt={title} loading="lazy" />
         <div className="info-container">
-          <div className="title">{`${title} (${year})`}</div>
+          <div className="year">{year}</div>
+          <h2 className="title">{title}</h2>
         </div>
       </Link>
     </MovieLi>
@@ -20,8 +21,9 @@ export function Movie({ id, title, poster, date, type }) {
 }
 
 const MovieLi = styled.li`
-  width: 22rem;
-  height: 100%;
+  position: relative;
+  height: 23rem;
+  width: 15rem;
   gap: 1rem;
   text-align: center;
   border-radius: 0.4rem;
@@ -37,28 +39,41 @@ const MovieLi = styled.li`
   }
 
   a {
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     img {
-      min-height: 33rem;
       flex-grow: 0;
       object-fit: cover;
     }
 
     .info-container {
-      flex-grow: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #000 100%);
+
+      .year {
+        background-color: rgba(255, 255, 255, 0.7);
+        color: #000;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 1rem;
+        margin: 1rem;
+        padding: 0 0.5rem;
+      }
 
       .title {
+        font-size: 1.2rem;
         color: #fff;
-        padding: 1rem;
-        font-size: 1.4rem;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
+        font-weight: 700;
+        margin: 1rem;
       }
     }
   }

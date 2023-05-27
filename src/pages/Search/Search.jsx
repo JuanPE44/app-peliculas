@@ -12,13 +12,62 @@ export function Search() {
   return (
     <SearchDiv>
       <Header />
-      <ListOfMovies movies={movies} loading={loadingMovies} title={search} />
+      <ContainerMovies>
+        <SubTitle>
+          Resultado de busqueda: <span>{search}</span>
+        </SubTitle>
+        <ListOfMovies movies={movies} loading={loadingMovies} />
+      </ContainerMovies>
     </SearchDiv>
   )
 }
 
 const SearchDiv = styled.div`
+  padding-top: 10rem;
   position: relative;
   width: 100%;
   min-height: 100vh;
+`
+
+const ContainerMovies = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 0 2rem;
+  margin: auto;
+`
+
+const SubTitle = styled.h2`
+  font-size: 1.7rem;
+  color: ${colors.white};
+  font-weight: 700;
+
+  span {
+    font-size: 1.7rem;
+    background: linear-gradient(45deg, ${colors.primary}, ${colors.black});
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 300%;
+    animation: name 15s infinite ease;
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+
+  @keyframes name {
+    0% {
+      background-position: left;
+    }
+    50% {
+      background-position: right;
+    }
+    100% {
+      background-position: left;
+    }
+  }
 `
