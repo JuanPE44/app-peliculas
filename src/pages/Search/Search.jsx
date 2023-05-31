@@ -30,6 +30,7 @@ const SearchDiv = styled.div`
 `
 
 const ContainerMovies = styled.div`
+  max-width: 110rem;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;

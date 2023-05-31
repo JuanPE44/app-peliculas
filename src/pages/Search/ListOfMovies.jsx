@@ -43,7 +43,6 @@ const LoadingContainer = styled.div`
 
 const List = styled.ul`
   width: 100%;
-  max-width: 100rem;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));

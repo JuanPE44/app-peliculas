@@ -22,8 +22,7 @@ export function Movie({ id, title, poster, date, type }) {
 
 const MovieLi = styled.li`
   position: relative;
-  height: 23rem;
-  width: 15rem;
+  width: 100%;
   gap: 1rem;
   text-align: center;
   border-radius: 0.4rem;
