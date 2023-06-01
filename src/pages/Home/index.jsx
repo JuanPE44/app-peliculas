@@ -39,6 +39,7 @@ const HomeDiv = styled.div`
   flex-direction: column;
   min-height: 100vh;
   position: relative;
+  padding-bottom: 3rem;
   width: 100%;
 `
 

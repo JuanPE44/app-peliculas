@@ -1,10 +1,4 @@
-const API = {
-  KEY: 'cb4604b6b4a0cbd010aa159b099d9eb9',
-  BASE: 'https://api.themoviedb.org/3/',
-  LANGUAJE: 'es-ES',
-}
-
-const IMG_URL = 'https://image.tmdb.org/t/p/w220_and_h330_face'
+import { API } from './variablesServices'
 
 export async function getSearch(search) {
   if (search === '') return
@@ -19,7 +13,7 @@ export async function getSearch(search) {
     return movies?.map((movie) => ({
       id: movie.id,
       title: movie.title ? movie.title : movie.name,
-      poster: `${IMG_URL}${movie.poster_path}`,
+      poster: `${API.POSTER_URL}${movie.poster_path}`,
       year: movie.release_date ? movie.release_date : movie.first_air_date,
       type: movie.media_type,
     }))

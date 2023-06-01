@@ -1,10 +1,4 @@
-const API = {
-  KEY: 'cb4604b6b4a0cbd010aa159b099d9eb9',
-  BASE: 'https://api.themoviedb.org/3/',
-  LANGUAJE: 'es-ES',
-}
-
-const IMG_URL = 'https://image.tmdb.org/t/p/w220_and_h330_face'
+import { API } from './variablesServices'
 
 export async function getMovie(postMoviId, type) {
   try {
@@ -12,11 +6,17 @@ export async function getMovie(postMoviId, type) {
       `${API.BASE}${type}/${postMoviId}?api_key=${API.KEY}&language=${API.LANGUAJE}`
     )
     const json = await response.json()
+    console.log(json)
     const movie = {
       id: json.id,
       title: json.title ? json.title : json.name,
-      poster: `${IMG_URL}${json.backdrop_path}`,
+      poster: `${API.POSTER_URL}${json.poster_path}`,
+      backdrop: `${API.BACKDROP_URL}${json.backdrop_path}`,
       year: json.release_date ? json.release_date : json.first_air_date,
+      genres: json.genres,
+      overview: json.overview,
+      rating: json.vote_average,
+      time: json.runtime,
     }
     return movie
   } catch (err) {
