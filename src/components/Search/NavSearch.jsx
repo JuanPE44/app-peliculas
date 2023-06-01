@@ -8,6 +8,7 @@ export function NavSearch() {
   const { inputRef, setInputActive, inputActive } = useSearchContext()
   return (
     <Nav
+      active={inputActive}
       onClick={() =>
         setInputActive(inputRef.current === document.activeElement)
       }
@@ -27,8 +28,8 @@ const Nav = styled.nav`
   min-width: 35rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #000e;
+  align-items: ${(props) => (props.active ? 'center' : 'flex-end')};
+  background: ${(props) => (props.active ? '#000e' : 'transparent')};
   color: #fff;
   border-radius: 0.4rem 0.4rem 0 0;
   overflow: visible;
@@ -49,7 +50,7 @@ const Nav = styled.nav`
 const SearchContainer = styled.div`
   display: ${(props) => (props.active ? 'block' : 'none')};
   position: absolute;
-  background-color: #000e;
+  background: ${(props) => (props.active ? '#000e' : 'transparent')};
   width: 100%;
   z-index: 100;
   border-radius: 0 0 0.4rem 0.4rem;

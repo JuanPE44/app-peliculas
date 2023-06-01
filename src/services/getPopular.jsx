@@ -20,8 +20,6 @@ export async function getPopular(type) {
       }
     })
 
-    console.log(newMovies)
-
     //id: json.id,
     //title: json.title ? json.title : json.name,
     //poster: `${IMG_URL}${json.backdrop_path}`,

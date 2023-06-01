@@ -76,5 +76,17 @@ export const GlobalStyle = createGlobalStyle`
     background: ${colors.grey};
     font-family: 'Inter', Helvetica, Sans-Serif;
     min-height: 300vh;
+
+    &::-webkit-scrollbar {
+      width: 10px; 
+      background-color: #262118; 
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${colors.primary};
+      border-radius: 5px;
+    }
+
+    scroll-behavior: smooth;
   }
 `

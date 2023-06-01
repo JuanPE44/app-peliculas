@@ -8,8 +8,14 @@ import { useNavigate } from 'react-router-dom'
 //import { colors } from '../../common/theme'
 
 export function FormSearch() {
-  const { search, setSearch, searchMovies, inputRef, setInputActive } =
-    useSearchContext()
+  const {
+    search,
+    setSearch,
+    searchMovies,
+    inputRef,
+    setInputActive,
+    inputActive,
+  } = useSearchContext()
   const navigate = useNavigate()
 
   const debounceSearch = useCallback(
@@ -35,8 +41,16 @@ export function FormSearch() {
     setSearch('')
   }
   return (
-    <Form onSubmit={(e) => handleSubmit(e)}>
-      <IconSvg icon={SvgSearch} color={'#fff'} width={2} height={2} />
+    <Form onSubmit={(e) => handleSubmit(e)} active={inputActive}>
+      <div className="icon-search">
+        <IconSvg
+          icon={SvgSearch}
+          color={'#fff'}
+          width={2}
+          height={2}
+          onClick={() => console.log('aaa')}
+        />
+      </div>
       <input
         onChange={(e) => handleChange(e)}
         onClick={() =>
@@ -52,14 +66,16 @@ export function FormSearch() {
         onClick={() => handleClear()}
         style={{ visibility: `${search.length > 0 ? '' : 'hidden'}` }}
       >
-        <IconSvg icon={SvgDelete} color={'#fff'} width={1} height={1} />
+        <div className="icon-delete">
+          <IconSvg icon={SvgDelete} color={'#fff'} width={1} height={1} />
+        </div>
       </div>
     </Form>
   )
 }
 
 const Form = styled.form`
-  width: 100%;
+  display: ${(props) => (props.active ? '100%' : '')};
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -69,6 +85,7 @@ const Form = styled.form`
   background: transparent;
 
   input {
+    display: ${(props) => (props.active ? 'block' : 'none')};
     flex-grow: 1;
     font-size: 1.7rem;
     padding: 0.5rem;
