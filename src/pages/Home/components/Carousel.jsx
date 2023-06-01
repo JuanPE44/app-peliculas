@@ -15,7 +15,7 @@ export function Carousel() {
     speed: 500, // Velocidad de desplazamiento (en milisegundos)
     slidesToShow: 5, // Cantidad de elementos a mostrar por vez
     slidesToScroll: 1, // Cantidad de elementos a desplazar por vez
-    autoplay: false, // Activar la reproducción automática
+    autoplay: true, // Activar la reproducción automática
     autoplaySpeed: 3000, // Tiempo de espera automático (en milisegundos)
   }
   return (

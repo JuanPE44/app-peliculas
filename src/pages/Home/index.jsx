@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Header } from '../../components/Header/Header'
 import { Carousel } from './components/Carousel'
 import { SimpleSearch } from './components/SimpleSearch'
+import { colors } from '../../common/theme'
 
 export function Home() {
   return (
@@ -15,7 +16,9 @@ export function Home() {
       </ImgDiv>
       <PresentacionDiv>
         <div className="contenido">
-          <h1>Bienvenidos.</h1>
+          <h1>
+            Bienvenidos<span>.</span>
+          </h1>
           <p>
             Millones de películas, programas de televisión y personas por
             descubrir. Explora ahora.
@@ -24,7 +27,7 @@ export function Home() {
         </div>
       </PresentacionDiv>
       <PopularDiv>
-        <h2>Popular</h2>
+        <h2>Peliculas populares</h2>
         <Carousel />
       </PopularDiv>
     </HomeDiv>
@@ -73,6 +76,7 @@ const PresentacionDiv = styled.div`
   align-items: center;
   color: #fff;
   z-index: 100;
+  padding: 4rem;
   .contenido {
     max-width: 90rem;
     padding: 0 2rem;
@@ -81,6 +85,10 @@ const PresentacionDiv = styled.div`
       text-align: left;
       font-size: 4.5rem;
       margin-bottom: 2rem;
+
+      span {
+        color: ${colors.primary};
+      }
     }
 
     p {

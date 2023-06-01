@@ -3,6 +3,7 @@ import { NavSearch } from '../Search/NavSearch'
 import { colors } from '../../common/theme'
 import { useSearchContext } from '../../hooks/useSearchContext'
 import logo from '../../assets/icono.png'
+import { Link } from 'react-router-dom'
 
 export function Header() {
   const { inputRef, setInputActive, inputActive } = useSearchContext()
@@ -11,11 +12,19 @@ export function Header() {
     <HeaderContainer>
       <ul className="header-ul">
         <li className="logo-header">
-          <img src={logo} alt="Logo" />
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
         </li>
-        <li>INICIO</li>
-        <li>PELICULAS</li>
-        <li>SERIES</li>
+        <li>
+          <Link to="/">INICIO</Link>
+        </li>
+        <li>
+          <Link to="/peliculas">PELICULAS</Link>
+        </li>
+        <li>
+          <Link to="/series">SERIES</Link>
+        </li>
       </ul>
       <NavSearch />
       <SearchOverlay
@@ -52,19 +61,21 @@ const HeaderContainer = styled.header`
     padding: 0;
 
     .logo-header {
-      margin-right: 1rem;
+      margin-right: 3rem;
       img {
         height: 5rem;
       }
     }
 
     li {
-      font-size: 1.6rem;
-      font-weight: 700;
-      cursor: pointer;
+      a {
+        font-size: 1.6rem;
+        font-weight: 600;
+        cursor: pointer;
 
-      &:hover {
-        color: ${colors.primary};
+        &:hover {
+          color: ${colors.primary};
+        }
       }
     }
   }

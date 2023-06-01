@@ -75,7 +75,7 @@ export const GlobalStyle = createGlobalStyle`
   body, html {
     background: ${colors.grey};
     font-family: 'Inter', Helvetica, Sans-Serif;
-    min-height: 300vh;
+    min-height: 100vh;
 
     &::-webkit-scrollbar {
       width: 10px; 
@@ -88,5 +88,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     scroll-behavior: smooth;
+    a:link, a:visited, a:active {
+    text-decoration:none;
+    color: #fff;
+  }
   }
 `
