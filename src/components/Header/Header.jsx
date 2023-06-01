@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { NavSearch } from '../Search/NavSearch'
 import { colors } from '../../common/theme'
 import { useSearchContext } from '../../hooks/useSearchContext'
+import logo from '../../assets/icono.png'
 
 export function Header() {
   const { inputRef, setInputActive, inputActive } = useSearchContext()
@@ -9,6 +10,9 @@ export function Header() {
   return (
     <HeaderContainer>
       <ul className="header-ul">
+        <li className="logo-header">
+          <img src={logo} alt="Logo" />
+        </li>
         <li>INICIO</li>
         <li>PELICULAS</li>
         <li>SERIES</li>
@@ -42,12 +46,20 @@ const HeaderContainer = styled.header`
 
   .header-ul {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.5rem;
     list-style: none;
     padding: 0;
 
+    .logo-header {
+      margin-right: 1rem;
+      img {
+        height: 5rem;
+      }
+    }
+
     li {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
       cursor: pointer;
 
