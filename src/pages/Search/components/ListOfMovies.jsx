@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Movie } from './Movie'
-import { Spinner } from '../../common/Spinner'
-import { colors } from '../../common/theme'
+import { Spinner } from '../../../common/Spinner'
+import { colors } from '../../../common/theme'
 
 export function ListOfMovies({ movies, loading }) {
   return loading ? (

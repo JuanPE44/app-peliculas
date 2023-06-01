@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from '../pages/Home/Home'
 import { Movie } from '../pages/Movie/Movie'
-import { Search } from '../pages/Search/Search'
+import { Search } from '../pages/Search'
 
 export function MyRoutes() {
   return (

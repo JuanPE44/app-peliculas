@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { RenderSearch } from './RenderSearch'
 import { FormSearch } from './FormSearch'
-import { colors } from '../../common/theme'
+// import { colors } from '../../common/theme'
 import { useSearchContext } from '../../hooks/useSearchContext'
 
 export function NavSearch() {
@@ -28,7 +28,7 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0007;
+  background-color: #000e;
   color: #fff;
   border-radius: 0.4rem 0.4rem 0 0;
   overflow: visible;
@@ -49,7 +49,7 @@ const Nav = styled.nav`
 const SearchContainer = styled.div`
   display: ${(props) => (props.active ? 'block' : 'none')};
   position: absolute;
-  background-color: #0007;
+  background-color: #000e;
   width: 100%;
   z-index: 100;
   border-radius: 0 0 0.4rem 0.4rem;

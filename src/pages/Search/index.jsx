@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Header } from '../../components/Header/Header'
 import { useParams } from 'react-router-dom'
 import { useMovies } from '../../hooks/useMovies'
-import { ListOfMovies } from './ListOfMovies'
+import { ListOfMovies } from './components/ListOfMovies'
 import { colors } from '../../common/theme'
 
 export function Search() {
@@ -23,7 +23,7 @@ export function Search() {
 }
 
 const SearchDiv = styled.div`
-  padding-top: 10rem;
+  padding-top: 14rem;
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -33,7 +33,7 @@ const ContainerMovies = styled.div`
   max-width: 110rem;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 2.6rem;
   padding: 0 2rem;
   margin: auto;
 `
@@ -45,7 +45,8 @@ const SubTitle = styled.h2`
 
   span {
     font-size: 1.7rem;
-    background: linear-gradient(45deg, ${colors.primary}, ${colors.black});
+    background: linear-gradient(45deg, ${colors.primary}, ${colors.white});
+    background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     background-size: 300%;

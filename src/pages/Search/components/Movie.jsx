@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { getYear } from '../../utilities/getYear'
-import { colors } from '../../common/theme'
+import { getYear } from '../../../utilities/getYear'
+import { colors } from '../../../common/theme'
 
 export function Movie({ id, title, poster, date, type }) {
-  const handleClick = () => {}
   const year = getYear(date)
 
   return (
-    <MovieLi className="movie" onClick={() => handleClick()}>
+    <MovieLi className="movie">
       <Link to={`/${type}/${id}`}>
         <img src={poster} alt={title} loading="lazy" />
         <div className="info-container">
