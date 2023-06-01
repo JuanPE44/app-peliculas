@@ -32,7 +32,6 @@ export function Home() {
 }
 
 const HomeDiv = styled.div`
-  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -66,7 +65,7 @@ const ImgDiv = styled.div`
 
 const PresentacionDiv = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;

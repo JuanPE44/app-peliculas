@@ -75,7 +75,7 @@ export function FormSearch() {
 }
 
 const Form = styled.form`
-  display: ${(props) => (props.active ? '100%' : '')};
+  width: ${(props) => (props.active ? '100%' : '')};
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -85,22 +85,28 @@ const Form = styled.form`
   background: transparent;
 
   input {
-    display: ${(props) => (props.active ? 'block' : 'none')};
+    position: ${(props) => (props.active ? 'relative' : 'absolute')};
+    right: ${(props) => (props.active ? '' : '0')};
     flex-grow: 1;
     font-size: 1.7rem;
     padding: 0.5rem;
     border: none;
     outline: none;
     background: transparent;
-    color: #fff;
+    color: ${(props) => (props.active ? '#fff' : 'transparent')};
+    z-index: 100;
 
     &::placeholder {
-      color: #fff;
+      color: ${(props) => (props.active ? '#fff' : 'transparent')};
       font-size: 1.4rem;
     }
 
     &:first-letter {
       text-transform: uppercase;
     }
+  }
+
+  .icon-delete {
+    display: ${(props) => (props.active ? 'block' : 'none')};
   }
 `
