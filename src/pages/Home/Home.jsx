@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Header } from '../../components/Header/Header'
 import { Carousel } from './components/Carousel'
+import { SimpleSearch } from './components/SimpleSearch'
 
 export function Home() {
   return (
@@ -13,11 +14,14 @@ export function Home() {
         />
       </ImgDiv>
       <PresentacionDiv>
-        <h1>Bienvenidos.</h1>
-        <p>
-          Millones de películas, programas de televisión y personas por
-          descubrir. Explora ahora.
-        </p>
+        <div className="contenido">
+          <h1>Bienvenidos.</h1>
+          <p>
+            Millones de películas, programas de televisión y personas por
+            descubrir. Explora ahora.
+          </p>
+          <SimpleSearch />
+        </div>
       </PresentacionDiv>
       <PopularDiv>
         <h2>Popular</h2>
@@ -62,19 +66,27 @@ const ImgDiv = styled.div`
 
 const PresentacionDiv = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  color: #fff;
   z-index: 100;
-  h1 {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-  }
+  .contenido {
+    max-width: 90rem;
+    padding: 0 2rem;
 
-  p {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    h1 {
+      text-align: left;
+      font-size: 4.5rem;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 2.5rem;
+      margin: 2rem 0;
+    }
   }
 `
 

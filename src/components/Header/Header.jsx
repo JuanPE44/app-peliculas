@@ -31,7 +31,11 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background: linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    to bottom,
+    ${colors.grey} 0,
+    rgba(0, 0, 0, 0) 100%
+  );
   padding: 1.5rem 4rem;
   color: #fff;
   z-index: 200;

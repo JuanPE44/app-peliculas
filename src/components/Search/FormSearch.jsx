@@ -5,7 +5,7 @@ import { SvgSearch, SvgDelete } from '../../common/icons/Svgs'
 import { useCallback } from 'react'
 import { useSearchContext } from '../../hooks/useSearchContext'
 import { useNavigate } from 'react-router-dom'
-import { colors } from '../../common/theme'
+//import { colors } from '../../common/theme'
 
 export function FormSearch() {
   const { search, setSearch, searchMovies, inputRef, setInputActive } =
