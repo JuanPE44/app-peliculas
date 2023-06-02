@@ -6,8 +6,8 @@ import { CardMovie } from './CardMovie'
 import styled from 'styled-components'
 import { colors } from '../../../common/theme'
 
-export function Carousel() {
-  const { popularMovies } = usePopular()
+export function Carousel({ type }) {
+  const { popularMovies } = usePopular(type)
 
   const settings = {
     dots: false, // Mostrar los puntos de navegación
@@ -25,9 +25,9 @@ export function Carousel() {
           <CardMovie
             key={movie.id}
             id={movie.id}
-            poster={movie.poster_path}
+            poster={movie.poster}
             title={movie.title}
-            date={movie.release_date}
+            date={movie.year}
             type={movie.type}
           />
         ))}

@@ -10,6 +10,9 @@ export async function getMovie(postMoviId, type) {
     const movie = {
       id: json.id,
       title: json.title ? json.title : json.name,
+      originalTitle: json.original_title
+        ? json.original_title
+        : json.original_name,
       poster: `${API.POSTER_URL}${json.poster_path}`,
       backdrop: `${API.BACKDROP_URL}${json.backdrop_path}`,
       year: json.release_date ? json.release_date : json.first_air_date,

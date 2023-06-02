@@ -28,7 +28,9 @@ export function Home() {
       </PresentacionDiv>
       <PopularDiv>
         <h2>Peliculas populares</h2>
-        <Carousel />
+        <Carousel type="movie" />
+        <h2>Series populares</h2>
+        <Carousel type="tv" />
       </PopularDiv>
     </HomeDiv>
   )
@@ -113,6 +115,7 @@ const PopularDiv = styled.div`
     font-weight: 700;
     text-align: center;
     margin-bottom: 2rem;
+    margin-top: 4rem;
     color: #fff;
   }
 `

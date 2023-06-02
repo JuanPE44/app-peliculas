@@ -6,18 +6,22 @@ export async function getPopular(type) {
       `${API.BASE}${type}/popular/?api_key=${API.KEY}&language=${API.LANGUAJE}`
     )
     const json = await response.json()
-    const newMovies = json.results.map((movies) => {
+    const newMovies = json.results.map((movie) => {
       return {
-        ...movies,
-        poster_path: `${API.POSTER_URL}${movies.poster_path}`,
-        type: type,
+        id: movie.id,
+        title: movie.title ? movie.title : movie.name,
+        originalTitle: movie.original_title
+          ? movie.original_title
+          : movie.original_name,
+        poster: `${API.POSTER_URL}${movie.poster_path}`,
+        backdrop: `${API.BACKDROP_URL}${movie.backdrop_path}`,
+        year: movie.release_date ? movie.release_date : movie.first_air_date,
+        genres: movie.genres,
+        overview: movie.overview,
+        rating: movie.vote_average,
+        time: movie.runtime,
       }
     })
-
-    //id: json.id,
-    //title: json.title ? json.title : json.name,
-    //poster: `${IMG_URL}${json.backdrop_path}`,
-    //year: json.release_date ? json.release_date : json.first_air_date,
 
     return newMovies
   } catch (err) {

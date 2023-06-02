@@ -28,10 +28,9 @@ export function InfoMovie() {
                 ))}
               </div>
             </div>
-            <div></div>
-            <div></div>
-            <h4></h4>
-            <p></p>
+
+            <h4>{movie.originalTitle}</h4>
+            <p>{movie.overview}</p>
           </div>
         </InfoDiv>
       )}
@@ -42,7 +41,7 @@ export function InfoMovie() {
 const InfoDiv = styled.div`
   position: relative;
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   background-image: url(${(props) => props.backdropUrl});
   background-size: cover;
   color: #fff;
@@ -53,7 +52,7 @@ const InfoDiv = styled.div`
     width: 100%;
     height: 100%;
     top: 0;
-    background-color: #000a;
+    background-color: #000b;
     backdrop-filter: blur(10px);
     z-index: 50;
   }
@@ -69,7 +68,7 @@ const InfoDiv = styled.div`
   }
 
   .contenedor-info {
-    padding: 2rem 0;
+    padding: 3rem 0;
     h1 {
       margin-bottom: 1rem;
       font-size: 3.5rem;
@@ -92,6 +91,20 @@ const InfoDiv = styled.div`
           font-size: 1.5rem;
         }
       }
+    }
+
+    h4 {
+      margin-top: 2rem;
+      font-size: 2.5rem;
+      color: ${colors.primary};
+    }
+
+    p {
+      max-width: 50rem;
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      padding-right: 2rem;
+      text-align: justify;
     }
     z-index: 100;
   }
