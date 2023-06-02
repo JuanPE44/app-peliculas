@@ -43,13 +43,7 @@ export function FormSearch() {
   return (
     <Form onSubmit={(e) => handleSubmit(e)} active={inputActive}>
       <div className="icon-search">
-        <IconSvg
-          icon={SvgSearch}
-          color={'#fff'}
-          width={2}
-          height={2}
-          onClick={() => console.log('aaa')}
-        />
+        <IconSvg icon={SvgSearch} color={'#fff'} width={2} height={2} />
       </div>
       <input
         onChange={(e) => handleChange(e)}
@@ -67,7 +61,7 @@ export function FormSearch() {
         style={{ visibility: `${search.length > 0 ? '' : 'hidden'}` }}
       >
         <div className="icon-delete">
-          <IconSvg icon={SvgDelete} color={'#fff'} width={1} height={1} />
+          <IconSvg icon={SvgDelete} color={'#fff'} width={1.5} height={1.5} />
         </div>
       </div>
     </Form>
@@ -75,7 +69,7 @@ export function FormSearch() {
 }
 
 const Form = styled.form`
-  width: ${(props) => (props.active ? '100%' : '')};
+  //width: ${(props) => (props.active ? '100%' : '')};
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -83,10 +77,14 @@ const Form = styled.form`
   padding: 1rem 1.5rem;
   z-index: 100;
   background: transparent;
+  user-select: none;
+
+  .icon-search {
+    position: ${(props) => (props.active ? 'relative' : 'absolute')};
+  }
 
   input {
-    position: ${(props) => (props.active ? 'relative' : 'absolute')};
-    right: ${(props) => (props.active ? '' : '0')};
+    width: ${(props) => (props.active ? '27rem' : '5rem')};
     flex-grow: 1;
     font-size: 1.7rem;
     padding: 0.5rem;
@@ -95,6 +93,7 @@ const Form = styled.form`
     background: transparent;
     color: ${(props) => (props.active ? '#fff' : 'transparent')};
     z-index: 100;
+    transition: 0.3s;
 
     &::placeholder {
       color: ${(props) => (props.active ? '#fff' : 'transparent')};

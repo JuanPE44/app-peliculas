@@ -20,6 +20,7 @@ export async function getPopular(type) {
         overview: movie.overview,
         rating: movie.vote_average,
         time: movie.runtime,
+        type: type,
       }
     })
 

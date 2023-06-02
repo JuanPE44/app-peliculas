@@ -5,14 +5,9 @@ import { FormSearch } from './FormSearch'
 import { useSearchContext } from '../../hooks/useSearchContext'
 
 export function NavSearch() {
-  const { inputRef, setInputActive, inputActive } = useSearchContext()
+  const { inputActive } = useSearchContext()
   return (
-    <Nav
-      active={inputActive}
-      onClick={() =>
-        setInputActive(inputRef.current === document.activeElement)
-      }
-    >
+    <Nav active={inputActive}>
       <FormSearch />
       <div className="search-div">
         <SearchContainer active={inputActive}>
@@ -28,7 +23,8 @@ const Nav = styled.nav`
   min-width: 35rem;
   display: flex;
   flex-direction: column;
-  align-items: ${(props) => (props.active ? 'center' : 'flex-end')};
+  //align-items: ${(props) => (props.active ? 'center' : 'flex-end')};
+  align-items: flex-end;
   background: ${(props) => (props.active ? '#000e' : 'transparent')};
   color: #fff;
   border-radius: 0.4rem 0.4rem 0 0;

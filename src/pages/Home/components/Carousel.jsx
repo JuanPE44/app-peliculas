@@ -5,18 +5,21 @@ import 'slick-carousel/slick/slick-theme.css'
 import { CardMovie } from './CardMovie'
 import styled from 'styled-components'
 import { colors } from '../../../common/theme'
+import { useGlobalContext } from '../../../hooks/useGlobalContext'
 
 export function Carousel({ type }) {
+  const { windowWidth } = useGlobalContext()
   const { popularMovies } = usePopular(type)
+  const elementsToShow = windowWidth < 400 ? 2 : windowWidth < 765 ? 3 : 5
 
   const settings = {
-    dots: false, // Mostrar los puntos de navegación
-    infinite: false, // Navegación infinita
-    speed: 500, // Velocidad de desplazamiento (en milisegundos)
-    slidesToShow: 5, // Cantidad de elementos a mostrar por vez
-    slidesToScroll: 1, // Cantidad de elementos a desplazar por vez
-    autoplay: true, // Activar la reproducción automática
-    autoplaySpeed: 3000, // Tiempo de espera automático (en milisegundos)
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: elementsToShow,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 3000,
   }
   return (
     <SliderDiv {...settings}>

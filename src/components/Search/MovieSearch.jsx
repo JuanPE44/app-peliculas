@@ -5,11 +5,12 @@ import { getYear } from '../../utilities/getYear'
 import { colors } from '../../common/theme'
 
 export function MovieSearch({ id, title, poster, date, type }) {
-  const { setInputActive } = useSearchContext()
+  const { setInputActive, setSearch } = useSearchContext()
   const year = getYear(date)
 
   const handleClick = () => {
     setInputActive(false)
+    setSearch('')
   }
 
   return (

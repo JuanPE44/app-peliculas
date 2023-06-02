@@ -2,12 +2,14 @@ import { GlobalStyle } from './common/GlobalStyle'
 import styled from 'styled-components'
 import { MyRoutes } from './routes/routes'
 import { SearchContextProvider } from './context/SearchContext'
+import { useGlobalContext } from './hooks/useGlobalContext'
 
 function App() {
+  const { changeResolution } = useGlobalContext()
   return (
     <>
       <GlobalStyle />
-      <AppDiv>
+      <AppDiv onLoad={changeResolution}>
         <SearchContextProvider>
           <MyRoutes />
         </SearchContextProvider>

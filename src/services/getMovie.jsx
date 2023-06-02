@@ -6,7 +6,6 @@ export async function getMovie(postMoviId, type) {
       `${API.BASE}${type}/${postMoviId}?api_key=${API.KEY}&language=${API.LANGUAJE}`
     )
     const json = await response.json()
-    console.log(json)
     const movie = {
       id: json.id,
       title: json.title ? json.title : json.name,
@@ -20,6 +19,7 @@ export async function getMovie(postMoviId, type) {
       overview: json.overview,
       rating: json.vote_average,
       time: json.runtime,
+      type: type,
     }
     return movie
   } catch (err) {
