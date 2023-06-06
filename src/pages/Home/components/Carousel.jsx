@@ -1,11 +1,11 @@
-import { usePopular } from '../../../hooks/usePopular'
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import { CardMovie } from './CardMovie'
 import styled from 'styled-components'
+import { CardMovie } from './CardMovie'
 import { colors } from '../../../common/theme'
 import { useGlobalContext } from '../../../hooks/useGlobalContext'
+import { usePopular } from '../../../hooks/usePopular'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 export function Carousel({ type }) {
   const { windowWidth } = useGlobalContext()
