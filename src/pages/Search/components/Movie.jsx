@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { getYear } from '../../../utilities/getYear'
 import { colors } from '../../../common/theme'
+import img404 from '../../../assets/404.png'
 
 export function Movie({ id, title, poster, date, type }) {
   const year = getYear(date)
@@ -9,7 +10,14 @@ export function Movie({ id, title, poster, date, type }) {
   return (
     <MovieLi className="movie">
       <Link to={`/${type}/${id}`}>
-        <img src={poster} alt={title} loading="lazy" />
+        <img
+          src={poster}
+          onError={(e) => {
+            e.target.src = img404
+          }}
+          alt={title}
+          loading="lazy"
+        />
         <div className="info-container">
           <div className="year">{year}</div>
           <h2 className="title">{title}</h2>
@@ -22,6 +30,7 @@ export function Movie({ id, title, poster, date, type }) {
 const MovieLi = styled.li`
   position: relative;
   width: 100%;
+  min-height: 100%;
   gap: 1rem;
   text-align: center;
   border-radius: 0.4rem;
@@ -29,7 +38,7 @@ const MovieLi = styled.li`
   color: #fff;
   cursor: pointer;
   text-align: left;
-  background: ${colors.primary};
+  background: #000;
   transition: 0.3s;
 
   &:hover {
@@ -38,8 +47,8 @@ const MovieLi = styled.li`
 
   a {
     position: relative;
-    height: 100%;
     display: flex;
+    height: 100%;
     flex-direction: column;
     text-decoration: none;
     img {

@@ -92,6 +92,8 @@ const Form = styled.form`
     outline: none;
     background: transparent;
     color: ${(props) => (props.active ? '#fff' : 'transparent')};
+    cursor: ${(props) => (props.active ? '' : 'pointer')};
+    text-decoration: none;
     z-index: 100;
     transition: 0.3s;
 

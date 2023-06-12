@@ -11,4 +11,6 @@ export function InfoMovies() {
 const InfoDiv = styled.div`
   width: 100%;
   min-height: 50rem;
+  padding: 2rem;
+  font-size: 2rem;
 `

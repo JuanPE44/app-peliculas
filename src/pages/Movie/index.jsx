@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
 import { InfoMovie } from './components/InfoMovie'
 
@@ -7,6 +8,7 @@ export function Movie() {
     <MovieDiv>
       <Header />
       <InfoMovie />
+      <Footer />
     </MovieDiv>
   )
 }

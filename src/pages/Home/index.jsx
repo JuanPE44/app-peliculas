@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
 import { Carousel } from './components/Carousel'
 import { SimpleSearch } from './components/SimpleSearch'
@@ -27,11 +28,12 @@ export function Home() {
         </div>
       </PresentacionDiv>
       <PopularDiv>
-        <h2>Peliculas populares</h2>
+        <h2 className="carousel-title">Peliculas populares</h2>
         <Carousel type="movie" />
-        <h2>Series populares</h2>
+        <h2 className="carousel-title">Series populares</h2>
         <Carousel type="tv" />
       </PopularDiv>
+      <Footer />
     </HomeDiv>
   )
 }
@@ -41,7 +43,6 @@ const HomeDiv = styled.div`
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  padding-bottom: 3rem;
   width: 100%;
 `
 
@@ -110,12 +111,13 @@ const PopularDiv = styled.div`
   margin: 0 auto;
   z-index: 100;
 
-  h2 {
+  .carousel-title {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 2rem;
     margin-top: 4rem;
     color: #fff;
+    color: ${colors.secondary};
   }
 `

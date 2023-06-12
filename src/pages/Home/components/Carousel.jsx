@@ -8,33 +8,34 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 export function Carousel({ type }) {
-  const { windowWidth } = useGlobalContext()
+  const { elementsToShow } = useGlobalContext()
   const { popularMovies } = usePopular(type)
-  const elementsToShow = windowWidth < 400 ? 2 : windowWidth < 765 ? 3 : 5
-
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: elementsToShow,
+    slidesToShow: popularMovies && elementsToShow,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,
   }
   return (
-    <SliderDiv {...settings}>
-      {popularMovies &&
-        popularMovies.map((movie) => (
-          <CardMovie
-            key={movie.id}
-            id={movie.id}
-            poster={movie.poster}
-            title={movie.title}
-            date={movie.year}
-            type={movie.type}
-          />
-        ))}
-    </SliderDiv>
+    <>
+      {popularMovies && (
+        <SliderDiv {...settings}>
+          {popularMovies.map((movie) => (
+            <CardMovie
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster}
+              title={movie.title}
+              date={movie.year}
+              type={movie.type}
+            />
+          ))}
+        </SliderDiv>
+      )}
+    </>
   )
 }
 
