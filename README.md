@@ -1,6 +1,6 @@
 # App-peliculas
 
-Este proyecto es una aplicación web de películas desarrollada con React, Styled Components y la API de The Movie Database (TMDB). Proporciona a los usuarios la capacidad de buscar películas y explorar las películas y series más populares.
+Este proyecto es una aplicación web de películas desarrollada con React y la API de The Movie Database (TMDB). Proporciona a los usuarios la capacidad de buscar películas y explorar las películas y series más populares.
 
 ## Demostración
 
